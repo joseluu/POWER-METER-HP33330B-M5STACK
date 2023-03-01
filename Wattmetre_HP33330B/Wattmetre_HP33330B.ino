@@ -10,7 +10,7 @@
  * Voltage = voltage read by the ADS1115 from the output of the OP192 == (HP33330B voltage x -2)
 */
 
-#include <M5Stack.h>
+#include "M5Fake.h"
 #include<ADS1115_WE.h> 
 #include<Wire.h>
 #include<EEPROM.h>
