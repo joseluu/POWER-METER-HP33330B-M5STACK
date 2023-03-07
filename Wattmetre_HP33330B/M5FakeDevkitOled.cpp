@@ -7,10 +7,10 @@
 #define RESCALE(d) (d/2)
 
 void M5FakeDevkitOled::oledSetup() {
-  pinMode(OLED_RST, OUTPUT);
-  digitalWrite(OLED_RST, LOW);
+  pinMode(RST_OLED, OUTPUT);
+  digitalWrite(RST_OLED, LOW);
   delay(50);
-  digitalWrite(OLED_RST, HIGH);
+  digitalWrite(RST_OLED, HIGH);
 
   oled.init();
   oled.clear();
