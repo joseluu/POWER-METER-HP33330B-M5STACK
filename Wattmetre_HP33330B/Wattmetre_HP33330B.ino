@@ -88,8 +88,9 @@ void setup(void) {
   M5.Lcd.drawCentreString("Color", 160, 220, 2);
   M5.Lcd.drawCentreString("Volt/dBm",252,220,2); 
   updateTime = millis(); // Save update time
+ #if not defined(WIFI_Kit_32_V3) and not defined(WIFI_LoRa_32_V3)
   dacWrite (25,0);// to stop the M5stack core screen white noise !
- 
+ #endif
 }
 
 void loop() {
@@ -99,7 +100,9 @@ M5.Lcd.setTextColor(Ctext1, TFT_BLACK);
   M5.Lcd.drawCentreString("Volt/dBm",252,220,2); 
 
 
-  dacWrite (25,0);// to stop the M5stack core screen white noise !
+ #if not defined(WIFI_Kit_32_V3) and not defined(WIFI_LoRa_32_V3)
+   dacWrite (25,0);// to stop the M5stack core screen white noise !
+ #endif
   if (updateTime <= millis()) {
     updateTime = millis() + interval; // Update interval
     
