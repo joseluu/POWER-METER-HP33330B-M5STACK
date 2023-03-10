@@ -78,7 +78,7 @@ void setup(void) {
   M5.Lcd.setTextColor(YELLOW, BLACK);
   M5.lcd.fillScreen(BLACK);
   M5.Lcd.drawCentreString("HP33330B",160,60,4);
-  M5.Lcd.drawCentreString("RF POWER METER",160,100,4);
+  M5.Lcd.drawCentreString("RF POWER METER",160,80,4);
   M5.Lcd.drawCentreString("       F1CJN  F1GE  F1BHY       ",160,100,4);
   delay(2000);
 
