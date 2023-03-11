@@ -127,7 +127,7 @@ uint16_t M5FakeDevkitOled::drawCentreString(const char *string,
 
 uint16_t M5FakeDevkitOled::drawCentreString(const String &string, int32_t dX,
                                    int32_t poY, uint8_t font) {
-    int16_t len = string.length()   2;
+    int16_t len = string.length() + 2;
     char buffer[len];
     string.toCharArray(buffer, len);
     return drawCentreString(buffer, dX, poY, font);

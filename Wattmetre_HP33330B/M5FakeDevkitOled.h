@@ -67,9 +67,3 @@ private:
 };
 
 #endif
-            uint8_t font, OLEDDISPLAY_TEXT_ALIGNMENT textAlignment);
-    int fgcolorText;
-    int bgcolorText; 
-};
-
-#endif
