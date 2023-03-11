@@ -3,12 +3,6 @@
 #define M5FAKEDEVKITOLED_H
 #include <SSD1306Wire.h>
 
-
-// HelTec ESP32 DevKit parameters
-#define D3 4
-#define D5 15
-#define OLED_RST 16
-
 #define TFT_BLACK       0x0000 /*   0,   0,   0 */
 #define TFT_NAVY        0x000F /*   0,   0, 128 */
 #define TFT_DARKGREEN   0x03E0 /*   0, 128,   0 */
@@ -37,7 +31,7 @@
 
 class M5FakeDevkitOled{
    public:
-M5FakeDevkitOled(): oled(0x3c, D3, D5, GEOMETRY_128_64, I2C_TWO)
+M5FakeDevkitOled(): oled(0x3c, SDA_OLED, SCL_OLED, GEOMETRY_128_64, I2C_TWO)
     {};
     virtual ~M5FakeDevkitOled()
     {};
@@ -67,6 +61,12 @@ private:
     OLEDDISPLAY_COLOR convertColor(int color);
     uint16_t drawStringInternal(
             const char *string, int32_t dX, int32_t poY,
+            uint8_t font, OLEDDISPLAY_TEXT_ALIGNMENT textAlignment);
+    int fgcolorText;
+    int bgcolorText; 
+};
+
+#endif
             uint8_t font, OLEDDISPLAY_TEXT_ALIGNMENT textAlignment);
     int fgcolorText;
     int bgcolorText; 

@@ -7,10 +7,10 @@
 #define RESCALE(d) (d/2)
 
 void M5FakeDevkitOled::oledSetup() {
-  pinMode(OLED_RST, OUTPUT);
-  digitalWrite(OLED_RST, LOW);
+  pinMode(RST_OLED, OUTPUT);
+  digitalWrite(RST_OLED, LOW);
   delay(50);
-  digitalWrite(OLED_RST, HIGH);
+  digitalWrite(RST_OLED, HIGH);
 
   oled.init();
   oled.clear();
@@ -127,7 +127,7 @@ uint16_t M5FakeDevkitOled::drawCentreString(const char *string,
 
 uint16_t M5FakeDevkitOled::drawCentreString(const String &string, int32_t dX,
                                    int32_t poY, uint8_t font) {
-    int16_t len = string.length() + 2;
+    int16_t len = string.length()   2;
     char buffer[len];
     string.toCharArray(buffer, len);
     return drawCentreString(buffer, dX, poY, font);
