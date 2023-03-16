@@ -52,13 +52,13 @@ String MeterLabeldB01[11] = {"-20","-19", "-18", "-17", "-16","-15","-14","-13",
 //************         Pour un étallonnage précis de votre sonde HP33330B         **************
 //********** Entrez ci-dessous les valeurs mesurées avec un générateur de précision*************
 //***************               valeurs  par défaut avec ma sonde              *******************
-float v_m10 = 43;  // Tension mesurée en mV par le M5stack avec -10dBm au géné
-float v_m5 = 101;  // Tension mesurée en mV par le M5stack avec -5dBm au géné
-float v_0 =  242;  // Tension mesurée en mV par le M5stack avec  0dBm au géné
-float v_5 =  504;  // Tension mesurée en mV par le M5stack avec +5dBm au géné
-float v_10 = 960;  // Tension mesurée en mV par le M5stack avec +10dBm au géné
-float v_15 = 1900; // Tension mesurée en mV par le M5stack avec +15dBm au géné
-float v_20 = 3600; // Tension mesurée en mV par le M5stack avec +20dBm au géné
+float v_m10 = 23;  // Tension mesurée en mV par le M5stack avec -10dBm au géné
+float v_m5 = 72;  // Tension mesurée en mV par le M5stack avec -5dBm au géné
+float v_0 =  184;  // Tension mesurée en mV par le M5stack avec  0dBm au géné
+float v_5 =  412;  // Tension mesurée en mV par le M5stack avec +5dBm au géné
+float v_10 = 835;  // Tension mesurée en mV par le M5stack avec +10dBm au géné
+float v_15 = 1840; // Tension mesurée en mV par le M5stack avec +15dBm au géné
+float v_20 = 2055; // Tension mesurée en mV par le M5stack avec +20dBm au géné
 //**********************************************************************************************
 
 void setup(void) {
@@ -79,7 +79,7 @@ void setup(void) {
   M5.lcd.fillScreen(BLACK);
   M5.Lcd.drawCentreString("HP33330B",160,60,4);
   M5.Lcd.drawCentreString("RF POWER METER",160,80,4);
-  M5.Lcd.drawCentreString("       F1CJN  F1GE  F1BHY       ",160,100,4);
+  M5.Lcd.drawCentreString("F1CJN-GE-BHY-FGV",160,100,4);
   delay(2000);
 
   M5.Lcd.fillScreen(TFT_BLACK);
@@ -116,7 +116,7 @@ M5.Lcd.setTextColor(Ctext1, TFT_BLACK);
     Serial.print("Voltage mV: ");Serial.println(voltage);
     voltage_m=voltage;
    if (voltage<=0) {(voltage=0.02);voltage_m=0.02; }  // 
-   if (voltage<=v_m10) {puissance_dBm= (log10(voltage)+0.41)*10-30;}    //OK                      // -30 à -10dBm
+   if (voltage<=v_m10) {puissance_dBm= (log10(voltage)+0.72)*10-30;}    //OK                      // -30 à -10dBm
    if ((voltage>v_m10)&&(voltage<=v_m5)) {puissance_dBm=((5/(v_m5-v_m10))*(voltage-v_m10))-10;}   // -10 à -5dBm 
    if ((voltage>v_m5)&&(voltage<=v_0))  {puissance_dBm=((5/(v_0-v_m5))*(voltage-v_m5))-5;}        // -5 à 0dBm
    if ((voltage>v_0)&&(voltage<=v_5))   {puissance_dBm=((5/(v_5-v_0))*(voltage-v_0));}            // 0 à +5dBm
